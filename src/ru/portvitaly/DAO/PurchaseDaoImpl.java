@@ -13,6 +13,8 @@ public class PurchaseDaoImpl extends Dao implements PurchaseDao{
 
     @Override
     public int addPurchase(List<Lot> products, Order order) throws SQLException, NamingException {
+        int resultOperation = 0;
+
         try {
             openConnection();
             for (Lot l: products ) {
@@ -21,18 +23,16 @@ public class PurchaseDaoImpl extends Dao implements PurchaseDao{
                     prepStatement.setInt(2,l.getProduct().getId());
                     prepStatement.setInt(3,l.getCount());
 
-                    int resultOperation = prepStatement.executeUpdate();
-                    if(resultOperation == 1) {
-                        System.out.println("Добавление прошло успешно");
-                        return 1;
-                    }
-
+                    resultOperation = prepStatement.executeUpdate();
                 }
             }
+            if(resultOperation == 1)
+                System.out.println("Добавление прошло успешно");
+
         }finally {
             closeConnection();
         }
-        return 0;
+        return resultOperation;
     }
 
 }

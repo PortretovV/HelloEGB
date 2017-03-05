@@ -7,6 +7,7 @@ import javax.naming.NamingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class OrderDaoImpl extends Dao implements OrderDao{
     public Order addOrder(Order order) throws SQLException, NamingException {
         openConnection();
 //        Order newOrder = new Order();
-        try(PreparedStatement prepStatement = connection.prepareStatement(ADD_ORDER)){
+        try(PreparedStatement prepStatement = connection.prepareStatement(ADD_ORDER, Statement.RETURN_GENERATED_KEYS)){
             prepStatement.setString(1,order.getArticle());
             prepStatement.setInt(2,order.getCost());
             prepStatement.setInt(3,order.getWidth());
@@ -58,9 +59,12 @@ public class OrderDaoImpl extends Dao implements OrderDao{
             prepStatement.setInt(5,order.getLength());
 
             int resultOperation = prepStatement.executeUpdate();
-            if(resultOperation == 1)
-                System.out.println("Добавление прошло успешно");
+            ResultSet rs = prepStatement.getGeneratedKeys();
 
+            if(rs.next()){
+                order.setId(rs.getInt(1));
+                System.out.println("Добавление прошло успешно");
+            }
         }finally {
             closeConnection();
         }
