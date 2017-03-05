@@ -12,6 +12,7 @@ public class Order {
     public Order(){}
 
     public Order(String article, int cost, int width, int height, int length) {
+        this.id = 0;
         this.article = article;
         this.cost = cost;
         this.width = width;

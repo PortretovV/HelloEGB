@@ -1,7 +1,7 @@
 package ru.portvitaly.JSF;
 
 
-import ru.portvitaly.EGB.BasketBean;
+import ru.portvitaly.EJB.BasketBean;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;

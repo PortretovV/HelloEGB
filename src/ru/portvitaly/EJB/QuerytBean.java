@@ -1,4 +1,4 @@
-package ru.portvitaly.EGB;
+package ru.portvitaly.EJB;
 
 import ru.portvitaly.entity.Product;
 
@@ -9,6 +9,7 @@ import java.util.List;
 public class QuerytBean {
 
     public List<Product> allProducts(){
+
 
     }
 

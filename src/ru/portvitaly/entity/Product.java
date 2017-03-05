@@ -9,6 +9,13 @@ public class Product {
 
     public Product(){}
 
+    public Product(String article, int count, int cost) {
+        this.id = 0;
+        this.article = article;
+        this.count = count;
+        this.cost = cost;
+    }
+
     public Product(int id, String article, int count, int cost) {
         this.id = id;
         this.article = article;

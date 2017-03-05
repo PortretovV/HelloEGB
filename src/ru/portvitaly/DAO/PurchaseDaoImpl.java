@@ -22,8 +22,10 @@ public class PurchaseDaoImpl extends Dao implements PurchaseDao{
                     prepStatement.setInt(3,l.getCount());
 
                     int resultOperation = prepStatement.executeUpdate();
-                    if(resultOperation == 1)
+                    if(resultOperation == 1) {
                         System.out.println("Добавление прошло успешно");
+                        return 1;
+                    }
 
                 }
             }
@@ -31,6 +33,6 @@ public class PurchaseDaoImpl extends Dao implements PurchaseDao{
             closeConnection();
         }
         return 0;
-
     }
+
 }
