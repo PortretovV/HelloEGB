@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Stateless(name = "ProductEJB")
-public class QuerytBean {
+public class QueryBean {
 
     public List<Product> allProducts(){
         List<Product> products = new ArrayList<>();
@@ -24,6 +24,20 @@ public class QuerytBean {
             e.printStackTrace();
         }
         return products;
+    }
+
+    public Product productById(int id){
+        Product p = null;
+        ProductDao productDao = new ProductDaoImpl();
+        try {
+            p = productDao.getProductById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+
+        return p;
     }
 
 
