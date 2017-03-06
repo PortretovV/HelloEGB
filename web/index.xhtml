@@ -10,8 +10,9 @@
 
   </head>
   <body>
-     <h2>Интернет-магазин</h2>
      <h:form>
+         <h:commandLink value="К корзине" action="#{SellBean.basket}"/>
+         <h2>Интернет-магазин</h2>
          <c:forEach items="#{SellBean.products}" var="products">
              <h:inputHidden value="#{products.id}"/>
              <h:commandLink value="#{products.article}" action="#{SellBean.detail(products.id)}"/>

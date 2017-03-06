@@ -23,6 +23,14 @@ public class BasketBean implements Serializable {
     private List<Lot> products = new ArrayList<>();
     private Order order;
 
+    public List<Lot> getProducts() {
+        return products;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
     public void addProduct(Product product, int countProduct){
         this.products.add(new Lot(product,countProduct));
     }
@@ -36,7 +44,7 @@ public class BasketBean implements Serializable {
         lot.setCount(count);
     }
 
-    public void createOrder(){
+    private void createOrder(){
         if(this.products.isEmpty())
             return;
         Random r = new Random();
@@ -53,7 +61,7 @@ public class BasketBean implements Serializable {
         this.order = new Order(article, cost, width*count, height*count, lenght*count);
     }
 
-    public int buyProducts(){
+    private int createPurchase(){
         if(products.isEmpty() || order == null)
             return 0;
 
@@ -72,6 +80,11 @@ public class BasketBean implements Serializable {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public int buyProducts(){
+        createOrder();
+        return createPurchase();
     }
 
 }

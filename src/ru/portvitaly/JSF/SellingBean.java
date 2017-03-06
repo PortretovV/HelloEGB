@@ -2,6 +2,7 @@ package ru.portvitaly.JSF;
 
 import ru.portvitaly.EJB.BasketBean;
 import ru.portvitaly.EJB.QueryBean;
+import ru.portvitaly.entity.Lot;
 import ru.portvitaly.entity.Order;
 import ru.portvitaly.entity.Product;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @ManagedBean(name = "SellBean")
 public class SellingBean {
 
+    private List<Lot> lots = new ArrayList<>();
     private List<Product> products = new ArrayList<>();
     private Product product = new Product();
     private int productCount;
@@ -53,8 +55,25 @@ public class SellingBean {
     }
 
 
+    public List<Lot> getLots() {
+        return basketBean.getProducts();
+    }
+
     public String index(){
         return "index";
+    }
+
+    public String basket(){
+        return "basket";
+    }
+
+
+    public String buyProducts(){
+        int result = basketBean.buyProducts();
+        if(result == 1 )
+            return "seccess";
+        else
+            return "failed";
     }
 
     public String detail(int id){
@@ -63,10 +82,7 @@ public class SellingBean {
     }
 
     public String addToBasket(Product product, int countProduct){
-        return "basket";
-    }
-
-    public String basket(Product product, int countProduct){
+        basketBean.addProduct(product, countProduct);
         return "basket";
     }
 
