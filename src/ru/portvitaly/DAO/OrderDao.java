@@ -2,10 +2,12 @@ package ru.portvitaly.DAO;
 
 import ru.portvitaly.entity.Order;
 
+import javax.ejb.Remote;
 import javax.naming.NamingException;
 import java.sql.SQLException;
 import java.util.List;
 
+@Remote
 public interface OrderDao {
 
     public List<Order> allOrders() throws SQLException, NamingException;

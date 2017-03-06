@@ -1,7 +1,9 @@
 package ru.portvitaly.entity;
 
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable{
     private int id;
     private String article;
     private int cost;

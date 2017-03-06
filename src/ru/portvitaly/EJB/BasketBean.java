@@ -17,8 +17,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+
 @Stateful(name = "BasketEJB")
-public class BasketBean implements Serializable {
+//@Named
+//@ConversationScoped
+public class BasketBean implements Serializable,ILocalBasketBean {
 
     private List<Lot> products = new ArrayList<>();
     private Order order;
@@ -82,6 +85,7 @@ public class BasketBean implements Serializable {
         return 0;
     }
 
+    @Override
     public int buyProducts(){
         createOrder();
         return createPurchase();

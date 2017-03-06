@@ -3,6 +3,7 @@ package ru.portvitaly.DAO;
 
 import ru.portvitaly.entity.Order;
 
+import javax.ejb.Stateless;
 import javax.naming.NamingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
 public class OrderDaoImpl extends Dao implements OrderDao{
     private final String ALL_ORDERS = "SELECT `id_order`, `article`, `cost`, `width`, `height`, `length` FROM orders";
     private final String ADD_ORDER = "INSERT INTO orders (id_order, article, cost, width, height, length) VALUES (NULL, ?, ?, ?, ?, ?)";

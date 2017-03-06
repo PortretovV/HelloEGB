@@ -71,7 +71,7 @@ public class SellingBean {
     public String buyProducts(){
         int result = basketBean.buyProducts();
         if(result == 1 )
-            return "seccess";
+            return "success";
         else
             return "failed";
     }
@@ -83,7 +83,7 @@ public class SellingBean {
 
     public String addToBasket(Product product, int countProduct){
         basketBean.addProduct(product, countProduct);
-        return "basket";
+        return "index";
     }
 
 }

@@ -10,6 +10,32 @@
             <to-view-id>../index.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+
+        <navigation-case>
+            <from-outcome>basket</from-outcome>
+            <to-view-id>../basket.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>detail</from-outcome>
+            <to-view-id>../detail.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>failed</from-outcome>
+            <to-view-id>../failed.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>../success.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+
     </navigation-rule>
   
 </faces-config>

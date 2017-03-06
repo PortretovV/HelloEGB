@@ -1,10 +1,13 @@
 package ru.portvitaly.DAO;
 
 import ru.portvitaly.entity.Product;
+
+import javax.ejb.Remote;
 import javax.naming.NamingException;
 import java.sql.SQLException;
 import java.util.List;
 
+@Remote
 public interface ProductDao {
     public List<Product> allProducts() throws SQLException, NamingException;
 

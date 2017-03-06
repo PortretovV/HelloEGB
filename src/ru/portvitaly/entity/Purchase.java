@@ -1,6 +1,8 @@
 package ru.portvitaly.entity;
 
-public class Purchase {
+import java.io.Serializable;
+
+public class Purchase implements Serializable {
     private int idPurchase;
     private int idOrder;
     private int idProduct;
